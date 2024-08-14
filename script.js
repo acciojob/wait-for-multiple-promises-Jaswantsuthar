@@ -18,9 +18,12 @@ const promises = [
 
 // Function to update the table with results
 function updateTable(results) {
-    const table = document.getElementById('promise-table');
-    table.innerHTML = ''; // Clear the loading row
-
+         const table = document.getElementById('promise-table');
+        if (!table) {
+            console.error("Element with ID 'promise-table' not found.");
+            return;
+        }
+        table.innerHTML = ''; // Clear the loading row
     results.forEach(result => {
         const row = document.createElement('tr');
 
